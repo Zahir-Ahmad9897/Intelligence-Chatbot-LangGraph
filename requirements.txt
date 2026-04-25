@@ -1,0 +1,10 @@
+langchain
+langgraph
+python-dotenv
+langchain-huggingface
+huggingface-hub
+langchain-groq
+groq
+streamlit
+# sqlite saver
+langgraph-checkpoint-sqlite
