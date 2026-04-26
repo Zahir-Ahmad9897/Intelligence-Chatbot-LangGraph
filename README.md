@@ -74,15 +74,17 @@ GROQ_API_KEY=your_gsk_api_key_here
 ### 4. Running the Application
 Launch the professional chatbot interface:
 ```bash
-streamlit run Chatbot_history_sidebar.py
+streamlit run 3_Chatbot_history_sidebar.py
 ```
 
 ---
 
 ## 📁 Repository Structure
 
-- `Chatbot_history_sidebar.py`: Main entry point with thread management.
-- `chatbot_backend.py`: Core LangGraph logic and agent definition.
+- `1_Chatbot_UI.py`: Standard chatbot interface.
+- `2_Chatbot_backend.py`: Core LangGraph logic and agent definition.
+- `3_Chatbot_history_sidebar.py`: Main entry point with thread management and history sidebar.
+- `4_Chatbot_streaming_UI.py`: Real-time streaming interface.
 - `LangGraph_database_backend.py`: Database integration and persistence logic.
 - `requirements.txt`: Project dependencies.
 
