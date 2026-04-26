@@ -6,18 +6,29 @@ __pycache__/
 # Environments
 .env
 .venv
-env/
 venv/
+env/
 myvenv/
 ENV/
+bin/
+lib/
+share/
 
 # Streamlit
 .streamlit/
+static/
 
 # Database
 *.sqlite
 *.db
+*.db-journal
+*.db-shm
+*.db-wal
+
+# VS Code
+.vscode/
 
 # OS
 .DS_Store
 Thumbs.db
+desktop.ini

@@ -1,72 +1,104 @@
-# 🤖 LangGraph Intelligence Chatbot
+# 🤖 Intelligence Chatbot: Agentic AI with LangGraph
 
-A professional, stateful AI Chatbot built using **LangGraph**, **LangChain**, and **Streamlit**. This project demonstrates advanced LLM orchestration with persistent memory, thread management, and a premium user interface.
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![LangGraph](https://img.shields.io/badge/orchestration-LangGraph-orange.svg)](https://github.com/langchain-ai/langgraph)
+[![Streamlit](https://img.shields.io/badge/UI-Streamlit-red.svg)](https://streamlit.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+A high-performance, stateful AI Chatbot built using **LangGraph**, **LangChain**, and **Streamlit**. This project demonstrates advanced LLM orchestration with persistent memory, thread management, and a premium user interface.
+
+---
 
 ## 🌟 Key Features
 
-- **🧠 State Management**: Powered by LangGraph to maintain conversation flow and state transitions.
-- **💾 Persistent Memory**: Supports multi-thread conversations. Switching between threads recovers the full context of that specific chat.
-- **⚡ Real-time Streaming**: Seamless message streaming for a smooth, interactive experience.
-- **📁 Thread History Sidebar**:
-    - **New Chat**: Instantly start a fresh session with a unique Thread ID.
-    - **Thread Switcher**: Browse and return to past conversations stored in memory.
-    - **Manual ID Input**: Join specific sessions via custom Thread IDs.
-- **🎨 Premium UI**: Modern, responsive design with dark mode support and intuitive controls.
-- **🚀 High Performance**: Powered by **Groq (Llama 3.3-70b)** for lightning-fast inference.
+- **🧠 State-Aware Orchestration**: Powered by LangGraph to maintain complex conversation flows and reliable state transitions.
+- **💾 Advanced Persistence**: Full support for multi-thread conversations. Switching threads recovers the exact context, state, and history of that specific session.
+- **⚡ Real-time Streaming**: Low-latency message streaming for a modern, fluid interactive experience.
+- **📁 Dynamic History Management**:
+    - **Session Persistence**: Automated thread saving using SQLite.
+    - **Thread Switcher**: Intuitive sidebar to browse and resume past conversations.
+    - **Instant Recovery**: Never lose a chat session even after a server restart.
+- **🎨 Premium UI/UX**: Clean, responsive interface with optimized dark mode support.
+- **🚀 Ultra-Fast Inference**: Integrated with **Groq (Llama 3.3-70b)** for near-instant responses.
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Core**: Python 3.10+
-- **Agent Framework**: [LangGraph](https://github.com/langchain-ai/langgraph)
-- **LLM Framework**: [LangChain](https://github.com/langchain-ai/langchain)
-- **Frontend**: [Streamlit](https://streamlit.io/)
-- **Inference**: [Groq Cloud](https://groq.com/)
-- **State Storage**: InMemorySaver (SQLite Persistence ready)
+| Component | Technology |
+| :--- | :--- |
+| **Language** | Python 3.10+ |
+| **Agent Framework** | [LangGraph](https://github.com/langchain-ai/langgraph) |
+| **LLM Interface** | [LangChain](https://github.com/langchain-ai/langchain) |
+| **Frontend** | [Streamlit](https://streamlit.io/) |
+| **Model Hosting** | [Groq Cloud](https://groq.com/) |
+| **Database** | SQLite (for persistent checkpoints) |
 
-## 📁 Project Structure
+---
 
-```text
-Chatbot/
-├── chatbot_backend.py          # LangGraph graph definition and LLM logic
-├── Chatbot_history_sidebar.py  # Main UI with history & thread management
-├── chatbot_streaming_UI.py    # Alternative streaming-focused UI
-├── requirements.txt            # Project dependencies
-└── .env                       # API keys (Groq, etc.)
+## 🏗️ Architecture
+
+```mermaid
+graph TD
+    User([User]) --> UI[Streamlit Interface]
+    UI --> Controller[Thread Controller]
+    Controller --> Graph[LangGraph Engine]
+    Graph --> LLM[Groq Llama 3.3]
+    Graph <--> DB[(SQLite Persistence)]
+    LLM --> Graph
+    Graph --> UI
 ```
+
+---
 
 ## 🚀 Getting Started
 
 ### 1. Prerequisites
-Ensure you have a Groq API Key. Get one at [console.groq.com](https://console.groq.com/).
+- Python 3.10 or higher
+- A Groq API Key (Obtain at [console.groq.com](https://console.groq.com/))
 
 ### 2. Installation
-Clone the repository and install dependencies:
+Clone the repository and install the required dependencies:
 ```bash
+git clone https://github.com/Zahir-Ahmad9897/Intelligence-Chatbot-LangGraph.git
+cd Intelligence-Chatbot-LangGraph
 pip install -r requirements.txt
 ```
 
-### 3. Environment Setup
+### 3. Environment Configuration
 Create a `.env` file in the root directory:
 ```env
 GROQ_API_KEY=your_gsk_api_key_here
 ```
 
 ### 4. Running the Application
-Launch the professional interface with history management:
+Launch the professional chatbot interface:
 ```bash
 streamlit run Chatbot_history_sidebar.py
 ```
 
-## 📈 Roadmap & Future Enhancements
+---
 
-- [ ] **SQL Persistence**: Replace InMemorySaver with SQLite for long-term database storage.
-- [ ] **Tool Integration**: Add search capabilities and data analysis tools to the agent.
-- [ ] **Multi-Agent Workflows**: Implement specialized nodes for research, coding, and summarization.
-- [ ] **User Authentication**: Secure individual chat histories for different users.
-- [ ] **Document Q&A**: RAG (Retrieval Augmented Generation) support for PDF/CSV files.
+## 📁 Repository Structure
 
-## 📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+- `Chatbot_history_sidebar.py`: Main entry point with thread management.
+- `chatbot_backend.py`: Core LangGraph logic and agent definition.
+- `LangGraph_database_backend.py`: Database integration and persistence logic.
+- `requirements.txt`: Project dependencies.
 
 ---
-*Built with ❤️ using LangGraph and Streamlit.*
+
+## 📈 Roadmap
+
+- [x] SQLite Persistence
+- [ ] Tool Calling Integration (Search, Calculator)
+- [ ] Multi-Agent Collaboration Nodes
+- [ ] RAG Integration for Document Q&A
+
+---
+
+## 📄 License
+Distributed under the MIT License. See `LICENSE` for more information.
+
+---
+*Developed with focus on Agentic AI principles.*
