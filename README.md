@@ -86,6 +86,7 @@ streamlit run 3_Chatbot_history_sidebar.py
 - `3_Chatbot_history_sidebar.py`: Main entry point with thread management and history sidebar.
 - `4_Chatbot_streaming_UI.py`: Real-time streaming interface.
 - `LangGraph_database_backend.py`: Database integration and persistence logic.
+- `Frontend_streamlit_database.py`: Database integration and front end.
 - `requirements.txt`: Project dependencies.
 
 ---
