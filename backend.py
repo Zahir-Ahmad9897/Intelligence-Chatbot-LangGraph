@@ -1,12 +1,14 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
+os.environ["LANGCHAIN_PROJECT"] = "Smart Chatbot"
+
 from langgraph.graph import StateGraph,START,END
 from typing import TypedDict,Annotated
 from langchain_core.messages import BaseMessage,HumanMessage
 from langchain_groq import ChatGroq
-from dotenv import load_dotenv
 from langgraph.checkpoint.sqlite import SqliteSaver
-import os
 import sqlite3
-load_dotenv()
 
 from langgraph.graph import add_messages
 

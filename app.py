@@ -1,6 +1,13 @@
 import streamlit as st
-import uuid
-from LangGraph_database_backend import chatbot, connection
+import os
+from dotenv import load_dotenv
+load_dotenv()
+os.environ["LANGCHAIN_PROJECT"] = "Smart Chatbot"
+
+from langsmith import uuid7
+import backend
+chatbot = backend.chatbot
+connection = backend.connection
 from langchain_core.messages import HumanMessage, AIMessage
 
 # Page config MUST be the first streamlit command
@@ -22,8 +29,9 @@ if 'thread_id' not in st.session_state:
         # Default to the most recent thread (last in list)
         st.session_state['thread_id'] = st.session_state['past_threads'][-1]
     else:
-        st.session_state['thread_id'] = "thread_1"
-        st.session_state['past_threads'].append("thread_1")
+        default_thread = str(uuid7())
+        st.session_state['thread_id'] = default_thread
+        st.session_state['past_threads'].append(default_thread)
 
 # Ensure message history is loaded for the current thread
 if 'message_history' not in st.session_state or not st.session_state['message_history']:
@@ -46,8 +54,7 @@ with st.sidebar:
     st.title("Settings")
     
     if st.button("➕ New Chat"):
-        import uuid
-        new_id = str(uuid.uuid4())[:8]
+        new_id = str(uuid7())
         st.session_state['thread_id'] = new_id
         st.session_state['message_history'] = []
         if new_id not in st.session_state['past_threads']:
@@ -105,7 +112,15 @@ if user_input:
     with st.chat_message("user"):
         st.markdown(user_input)
     
-    CONFIG = {'configurable': {'thread_id': st.session_state['thread_id']}}
+    CONFIG = {
+        'configurable': {'thread_id': st.session_state['thread_id']},
+        'metadata': {
+            'thread_id': st.session_state['thread_id'],
+            'session_id': st.session_state['thread_id'],
+            'conversation_id': st.session_state['thread_id']
+        },
+        "run_name": "Chat_turn"
+    }
     
     # Assistant response
     with st.chat_message("assistant"):
