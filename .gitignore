@@ -32,3 +32,9 @@ static/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Deployment / Logs
+*.log
+dist/
+build/
+*.egg-info/

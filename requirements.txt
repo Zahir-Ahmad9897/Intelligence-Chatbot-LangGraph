@@ -8,3 +8,5 @@ groq
 streamlit
 # sqlite saver
 langgraph-checkpoint-sqlite
+requests
+duckduckgo-search
