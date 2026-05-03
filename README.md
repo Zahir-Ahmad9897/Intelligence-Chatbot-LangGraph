@@ -55,6 +55,8 @@ GROQ_API_KEY="your_groq_api_key"
 LANGCHAIN_TRACING_V2="true"
 LANGCHAIN_API_KEY="your_langsmith_api_key"
 LANGCHAIN_PROJECT="Agentic Chatbot v2"
+ALPHA_VANTAGE_API_KEY="your API key"
+
 ```
 
 ### 3. Launch Application
